@@ -1,29 +1,53 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ScriptloaderService } from '../scriptloader.service';
-import { Glider } from 'glider-js'
+// import { Glider } from '../../../src/assets/js/glider.min.js';
+// declare const Glider : any
+// import { Glider} from 'glider-js';
+// declare var $:JQueryStatic;
+// import * as glider from 'glider-js';
+import $ from 'jquery';
+
+declare const Glider : any;
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
 })
+
+
+
 export class CarouselComponent implements OnInit {
 
-  constructor( private scriptLoader : ScriptloaderService ) { }
+  //  glider = new glider ('.glider');
+
+  listOfDates = [ 
+    { date : 3},
+    { date : 4},
+    { date : 5},
+    { date : 6},
+    { date : 7},
+    { date : 8},
+    { date : 9}
+  ]
+
+  constructor( private scriptLoader : ScriptloaderService ) { 
+     
+  
+  }
 
   ngOnInit() {
     this.loadScripts();
-  //  this.loadScripts();
-  // var glider =  Glider(document.querySelector('.glider'), {
-  //   slidesToShow: 5,
-  //   slidesToScroll: 1,
-  //   draggable: true,
-  //   dots: '.dots',
-  //   arrows: {
-  //     prev: '.glider-prev',
-  //     next: '.glider-next'
-  //   }
-  // });
+      // this.glider(document.querySelector('.glider'), {
+      //   slidesToShow: 5,
+      //   slidesToScroll: 1,
+      //   draggable: true,
+      //   dots: '.dots',
+      //   arrows: {
+      //     prev: '.glider-prev',
+      //     next: '.glider-next'
+      //   }
+      // });
   }
  
   // ngAfterViewInit () {
@@ -48,5 +72,31 @@ export class CarouselComponent implements OnInit {
 
   sayHello() {
     console.log('hello there');
+  }
+
+  OnRemoveClick() {
+  
+    this.listOfDates.shift();
+  }
+
+  OnAddClick() {
+    let d = { date : 10 };
+
+    this.listOfDates.push(d);
+
+    console.log(this.listOfDates);
+    // glider.refresh(true);
+
+    $(document).ready(function(){
+     
+      var glider = new Glider(document.getElementById('glider'), {
+        slidesToShow: 1,
+        dots: '#dots',
+      });
+
+      glider.refresh(true);
+
+    });
+    
   }
 }

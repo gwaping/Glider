@@ -2,33 +2,11 @@
  
 
   <div class="glider-contain multiple">
-    <div class="glider">
-      <div>
-        <mat-card (click)="sayHello()" class="date-card">
-          <label>Hello There 1</label>
-        </mat-card>
-      </div>
-      <div>
-        <mat-card (click)="sayHello()" class="date-card">
-          <label>Hello There 2</label>
-        </mat-card>
-      </div>
-      <div>
-        <mat-card (click)="sayHello()" class="date-card">
-          <label>Hello There 3</label>
-        </mat-card>
-      </div>
-      <div>
-        <mat-card (click)="sayHello()" class="date-card">
-          <label>Hello There 4</label>
-        </mat-card>
-      </div>
-      <div>
-        <mat-card (click)="sayHello()" class="date-card">
-          <label>Hello There 5</label>
-        </mat-card>
-      </div>
-        
+    <div id="glider" class="glider">
+     
+        <div *ngFor="let date of listOfDates; ">
+              {{ date.date }}
+        </div>  
       
     </div>
 
@@ -37,5 +15,6 @@
     <!-- <div role="tablist" class="dots"></div> -->
   </div>
 
-
+  <button (click)="OnAddClick()">add</button>
+  <button (click)="OnRemoveClick()">remove</button>
  

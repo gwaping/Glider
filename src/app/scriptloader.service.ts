@@ -18,8 +18,8 @@ interface Scripts {
 export const ScriptStore: Scripts[] = [
   { name: 'chartjs', src: 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js' },
   { name: 'random-gen', src: '../../../assets/js/random-num-generator.js' },
-  { name: 'gliderjs' , src : '../../../assets/glider.min.js'},
-  { name: 'gliderInit' , src : '../../../assets/gliderInit.js'}
+  { name: 'gliderjs' , src : '../../../assets/js/glider.min.js'},
+  { name: 'gliderInit' , src : '../../../assets/js/gliderInit.js'}
 ];
 
 declare var document: any;
